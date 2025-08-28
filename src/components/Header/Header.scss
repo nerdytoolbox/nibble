@@ -1,0 +1,23 @@
+.nibble-header {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  background-color: var(--light-night);
+
+  .menu-icon-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 3rem;
+	width: 3rem;
+	margin-right: 0.5rem;
+
+	.menu-icon {
+	  font-size: 2rem;
+	}
+  }
+
+  .title {
+	margin: 0;
+  }
+}
