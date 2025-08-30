@@ -1,9 +1,9 @@
 import './ListOfNibbles.scss'
 import { useContext } from "react";
-import { NibbleContext } from "../../../context/NibbleContext.jsx";
+import { NibbleContext } from "../../context/NibbleContext.jsx";
 import NibbleItem from "./NibbleItem/NibbleItem.jsx";
 import { Button } from "nerdy-lib";
-import { POPUP_CONTENT, PREMADE_NIBBLES } from "../../../util/constants.js";
+import { POPUP_CONTENT, PREMADE_NIBBLES } from "../../util/constants.js";
 import PremadeNibbles from "./AddNibble/PremadeNibbles.jsx";
 
 const ListOfNibbles = () => {

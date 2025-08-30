@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NibbleContext } from "../../../context/NibbleContext.jsx";
+import { NibbleContext } from "../../context/NibbleContext.jsx";
 import { Button } from "nerdy-lib";
 import './TakeANibble.scss'
 

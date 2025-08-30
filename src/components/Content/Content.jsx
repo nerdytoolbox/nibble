@@ -1,9 +1,9 @@
 import './Content.scss'
 import { useContext } from "react";
 import { NibbleContext } from "../../context/NibbleContext.jsx";
-import ListOfNibbles from "./ListOfNibbles/ListOfNibbles.jsx";
-import TakeANibble from "./TakeANibble/TakeANibble.jsx";
-import About from "./About/About.jsx";
+import ListOfNibbles from "../ListOfNibbles/ListOfNibbles.jsx";
+import TakeANibble from "../TakeANibble/TakeANibble.jsx";
+import About from "../About/About.jsx";
 
 const Content = () => {
 	const { selectedTab, MENU_ITEMS } = useContext(NibbleContext)

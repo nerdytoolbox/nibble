@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NibbleContext } from "../../../../context/NibbleContext.jsx";
+import { NibbleContext } from "../../../context/NibbleContext.jsx";
 import { IoMdAdd } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { FaRegStar } from "react-icons/fa";

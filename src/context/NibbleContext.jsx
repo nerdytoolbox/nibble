@@ -62,6 +62,7 @@ export const NibbleProvider = ({ children }) => {
 				return;
 			}
 
+			setPopupContent(null)
 			setIsPopupOpen(false)
 		};
 
@@ -91,7 +92,7 @@ export const NibbleProvider = ({ children }) => {
 			settingsOpen, setSettingsOpen, handleSettingsToggle,
 			menuRef, settingsRef,
 			MENU_ITEMS, selectedTab, handleMenuItemClick,
-			nibbles, addNibble, deleteNibble,
+			nibbles, setNibbles, addNibble, deleteNibble,
 			isPopupOpen, openPopup, closePopup, popupRef, popupContent, setPopupContent
 		}}>
 			{children}

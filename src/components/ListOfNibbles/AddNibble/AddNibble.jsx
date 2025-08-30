@@ -1,7 +1,7 @@
 import { TextInput, Button } from "nerdy-lib";
 import './AddNibble.scss'
 import { useContext, useState } from "react";
-import { NibbleContext } from "../../../../context/NibbleContext.jsx";
+import { NibbleContext } from "../../../context/NibbleContext.jsx";
 
 const AddNibble = () => {
 	const { addNibble, closePopup } = useContext(NibbleContext)

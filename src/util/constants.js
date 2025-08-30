@@ -4,6 +4,7 @@ export const NIBBLES_KEY = 'nibbles-key'
 // Popup content types
 export const POPUP_CONTENT = {
 	ADD_NIBBLE: 'addNibble',
+	RESET_DATA: 'resetData',
 }
 
 // Premade Nibbles
