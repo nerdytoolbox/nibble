@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   height: 3rem;
+  border-bottom: solid 1px var(--border);
   background-color: var(--light-night);
 
   .menu-icon-div {
@@ -15,6 +16,10 @@
 	.menu-icon {
 	  font-size: 2rem;
 	}
+  }
+
+  .menu-icon-div:hover {
+	background-color: var(--border);
   }
 
   .title {

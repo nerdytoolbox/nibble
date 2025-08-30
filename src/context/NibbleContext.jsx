@@ -1,4 +1,5 @@
 import { createContext, useEffect, useRef, useState } from "react";
+import { NIBBLES_KEY } from "../util/constants.js";
 
 export const NibbleContext = createContext(null)
 
@@ -35,10 +36,63 @@ export const NibbleProvider = ({ children }) => {
 		};
 	}, [settingsOpen, setSettingsOpen]);
 
+	/**
+	 * Menu selector
+	 */
+	const MENU_ITEMS = ["About", "Take a nibble", "List of nibbles"]
+	const [selectedTab, setSelectedTab] = useState(MENU_ITEMS[1])
+	const handleMenuItemClick = (item) => {
+		setSelectedTab(item)
+		setSettingsOpen(false)
+	}
+
+	/**
+	 * Popup modal state
+	 */
+	const [isPopupOpen, setIsPopupOpen] = useState(false)
+	const [popupContent, setPopupContent] = useState(null)
+	const openPopup = () => setIsPopupOpen(true)
+	const closePopup = () => setIsPopupOpen(false)
+	const popupRef = useRef(null)
+	useEffect(() => {
+		if (!isPopupOpen) return;
+
+		const handleClickOutside = (event) => {
+			if (popupRef.current && popupRef.current.contains(event.target)) {
+				return;
+			}
+
+			setIsPopupOpen(false)
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [isPopupOpen, setIsPopupOpen]);
+
+	/**
+	 * localStorage for Nibbles
+	 */
+	const [nibbles, setNibbles] = useState(localStorage.getItem(NIBBLES_KEY) ? JSON.parse(localStorage.getItem(NIBBLES_KEY)) : [])
+	const addNibble = (nibble) => {
+		setNibbles(prevNibbles => [...prevNibbles, { id: nibble.id ? nibble.id : crypto.randomUUID(), text: nibble.text, active: true, premade: nibble.premade }])
+	}
+	const deleteNibble = (id) => {
+		setNibbles(prevNibbles => prevNibbles.filter(nibble => nibble.id !== id))
+	}
+	useEffect(() => {
+		localStorage.setItem(NIBBLES_KEY, JSON.stringify(nibbles))
+	}, [nibbles]);
+
+
 	return (
 		<NibbleContext.Provider value={{
-			settingsOpen, handleSettingsToggle,
-			menuRef, settingsRef
+			settingsOpen, setSettingsOpen, handleSettingsToggle,
+			menuRef, settingsRef,
+			MENU_ITEMS, selectedTab, handleMenuItemClick,
+			nibbles, addNibble, deleteNibble,
+			isPopupOpen, openPopup, closePopup, popupRef, popupContent, setPopupContent
 		}}>
 			{children}
 		</NibbleContext.Provider>

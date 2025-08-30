@@ -1,0 +1,25 @@
+@use "nerdy-lib/src/mixins" as mixins;
+
+.list-of-nibbles {
+  padding: 0.8rem;
+
+  .header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+  }
+
+  details {
+	margin-top: 1rem;
+  }
+
+  span, summary {
+	font-size: 1.2rem;
+	font-weight: bold;
+  }
+
+  summary {
+	margin-bottom: 1rem;
+  }
+}

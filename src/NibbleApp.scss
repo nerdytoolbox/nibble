@@ -1,8 +1,16 @@
+:root {
+  --border: color-mix(in srgb, var(--light-night), white 10%);
+}
+
 .tool-content {
   padding: 0 !important;
 
   .nibble-main-page {
 	display: flex;
 	flex-direction: column;
+  }
+
+  .nibble-main-page.blurred {
+	filter: blur(1px);
   }
 }
