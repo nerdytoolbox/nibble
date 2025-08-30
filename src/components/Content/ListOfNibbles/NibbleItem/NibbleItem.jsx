@@ -12,9 +12,9 @@ const NibbleItem = ({ nibble }) => {
 		<div className="nibble-item">
 			{nibble.text}
 			<div className="icons">
-				{nibble.active && nibble.premade && <FaRegStar />}
-				{nibble.active && <MdDelete className="icon" onClick={() => deleteNibble(nibble.id)} />}
-				{!nibble.active && nibble.premade && <IoMdAdd className="icon" onClick={() => addNibble(nibble)} />}
+				{nibble.active && nibble.premade && <FaRegStar className="icon" />}
+				{nibble.active && <MdDelete className="icon selectable" onClick={() => deleteNibble(nibble.id)} />}
+				{!nibble.active && nibble.premade && <IoMdAdd className="icon selectable" onClick={() => addNibble(nibble)} />}
 			</div>
 		</div>
 	)

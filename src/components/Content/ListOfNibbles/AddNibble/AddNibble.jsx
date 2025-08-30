@@ -12,7 +12,7 @@ const AddNibble = () => {
 	}
 
 	const handleAddClick = () => {
-		addNibble(nibbleText)
+		addNibble({ text: nibbleText })
 		setNibbleText("")
 		closePopup()
 	}

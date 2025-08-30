@@ -15,7 +15,7 @@ const TakeANibble = () => {
 		return (
 			<div className="take-a-nibble-container">
 				<Button
-					size="size9"
+					size="size8"
 					shape="square"
 					color="red"
 					onClick={handleTakeANibble}
