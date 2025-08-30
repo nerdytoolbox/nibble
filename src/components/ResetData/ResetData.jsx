@@ -21,7 +21,7 @@ const ResetData = () => {
 	return (
 		<div className="reset-data-container">
 			<span>Reset all data</span>
-			This will delete all your nibbles and cannot be undone. Are you sure you want to proceed?
+			This will delete all your Nibbles and cannot be undone. Are you sure you want to proceed?
 			<div className="buttons">
 				<Button onClick={handleCancel}>
 					Cancel
