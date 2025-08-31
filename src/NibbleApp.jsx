@@ -11,8 +11,18 @@ import { useContext } from "react";
 const NibbleApp = () => {
   const { isPopupOpen } = useContext(NibbleContext)
 
+  const getFooter = () => {
+    return (
+      <div className="tool-footer">
+        <a href="https://github.com/nerdytoolbox/nibble/issues/new?template=ISSUE_TEMPLATE.md">Report issues / Feature requests</a>
+        <span>&nbsp;|&nbsp;</span>
+        <a href="https://github.com/nerdytoolbox/nibble/releases/tag/v1.0.0">v1.0.0</a>
+      </div>
+    )
+  }
+
   return (
-    <Hub>
+    <Hub footer={getFooter()}>
       <div className={`nibble-main-page ${isPopupOpen ? "blurred" : ""}`}>
         <Header />
         <Menu />
