@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { NibbleContext } from "../../context/NibbleContext.jsx";
 
 const ResetData = () => {
-	const { closePopup, setPopupContent, setNibbles } = useContext(NibbleContext)
+	const { closePopup, setPopupContent, setNibbles, setHistory } = useContext(NibbleContext)
 
 	const handleCancel = () => {
 		setPopupContent(null)
@@ -13,6 +13,7 @@ const ResetData = () => {
 
 	const handleReset = () => {
 		setNibbles([])
+		setHistory([])
 		setPopupContent(null)
 		closePopup()
 	}
@@ -21,7 +22,7 @@ const ResetData = () => {
 	return (
 		<div className="reset-data-container">
 			<span>Reset all data</span>
-			This will delete all your Nibbles and cannot be undone. Are you sure you want to proceed?
+			This will delete all your Nibbles and history and cannot be undone. Are you sure you want to proceed?
 			<div className="buttons">
 				<Button onClick={handleCancel}>
 					Cancel

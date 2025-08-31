@@ -1,5 +1,5 @@
 import { createContext, useEffect, useRef, useState } from "react";
-import { NIBBLES_KEY } from "../util/constants.js";
+import { HISTORY_KEY, NIBBLES_KEY } from "../util/constants.js";
 
 export const NibbleContext = createContext(null)
 
@@ -86,6 +86,16 @@ export const NibbleProvider = ({ children }) => {
 		localStorage.setItem(NIBBLES_KEY, JSON.stringify(nibbles))
 	}, [nibbles]);
 
+	/**
+	 * localStorage for history
+	 */
+	const [history, setHistory] = useState(localStorage.getItem(HISTORY_KEY) ? JSON.parse(localStorage.getItem(HISTORY_KEY)) : [])
+	const addHistoryEntry = (entry) => {
+		setHistory(prevHistory => [...prevHistory, entry])
+	}
+	useEffect(() => {
+		localStorage.setItem(HISTORY_KEY, JSON.stringify(history))
+	}, [history]);
 
 	return (
 		<NibbleContext.Provider value={{
@@ -93,7 +103,8 @@ export const NibbleProvider = ({ children }) => {
 			menuRef, settingsRef,
 			MENU_ITEMS, selectedTab, handleMenuItemClick,
 			nibbles, setNibbles, addNibble, deleteNibble,
-			isPopupOpen, openPopup, closePopup, popupRef, popupContent, setPopupContent
+			isPopupOpen, openPopup, closePopup, popupRef, popupContent, setPopupContent,
+			addHistoryEntry, setHistory
 		}}>
 			{children}
 		</NibbleContext.Provider>
