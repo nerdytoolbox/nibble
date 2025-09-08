@@ -1,6 +1,7 @@
 // Localstorage keys
 export const NIBBLES_KEY = 'nibbles-key'
 export const HISTORY_KEY = 'history-key'
+export const CURRENT_NIBBLE_KEY = 'current-nibble-key'
 
 // Popup content types
 export const POPUP_CONTENT = {

@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { NibbleContext } from "../../context/NibbleContext.jsx";
 import { Button } from "nerdy-lib";
 import './TakeANibble.scss'
 import { NIBBLE_ACTIONS } from "../../util/constants.js";
 
 const TakeANibble = () => {
-	const { nibbles, addHistoryEntry } = useContext(NibbleContext)
-	const [currentNibble, setCurrentNibble] = useState(null)
+	const { nibbles, addHistoryEntry, currentNibble, setCurrentNibble } = useContext(NibbleContext)
 
 	const handleTakeANibble = () => {
 		setCurrentNibble(nibbles[Math.floor(Math.random() * nibbles.length)])
